@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const router = require('./routes/index');
+const todoRouter = require('./routes/Todo');
 
 // Setting up db connection
 const db = require('./config/database');
@@ -17,7 +17,7 @@ const app = express();
 // Setting up middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(router);
+app.use(todoRouter);
 
 // Start server on port 5000
 const PORT = process.env.PORT || 5000;
